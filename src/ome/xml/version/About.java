@@ -36,6 +36,13 @@
 
 package ome.xml.version;
 
+import java.io.*;
+import java.util.LinkedList;
+import java.util.List;
+
+import difflib.*;
+
+
 /**
  * Displays a small information dialog about the project.
  *
@@ -70,11 +77,49 @@ public final class About {
     return sb.toString();
   }
 
+  // Helper method for get the file content
+  private static List<String> fileToLines(String filename) {
+          List<String> lines = new LinkedList<String>();
+          String line = "";
+          try {
+                  BufferedReader in = new BufferedReader(new FileReader(filename));
+                  while ((line = in.readLine()) != null) {
+                          lines.add(line);
+                  }
+          } catch (IOException e) {
+                  e.printStackTrace();
+          }
+          return lines;
+  }
+  
   // -- Main method --
 
   public static void main(String[] args) {
-    System.out.println(about());
-    System.exit(0);
+    List<String> original = fileToLines(args[0]);
+    List<String> revised  = fileToLines(args[2]);
+    
+    // Compute diff. Get the Patch object. Patch is the container for computed deltas.
+    Patch patch = DiffUtils.diff(original, revised);
+
+    try {
+      BufferedWriter out = new BufferedWriter(new FileWriter(args[4]));
+      for (Delta delta: patch.getDeltas()) {
+        out.write(delta.toString());
+        //out.write(args[0]);
+        }
+      out.close();
+      } catch (IOException e) {
+      e.printStackTrace();
+      }
+
+    //System.out.println(args[0]);
+    //System.out.println(args[2]);
   }
+  
+  //public static void main(String[] args) {
+    //System.out.println(args[0]);
+    //System.out.println(about());
+    //System.exit(0);
+  //}
 
 }
