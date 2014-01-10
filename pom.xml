@@ -100,6 +100,13 @@
 		</developer>
 	</developers>
 
+	<scm>
+		<connection>scm:git:git://github.com/uw-loci/ome-versioning</connection>
+		<developerConnection>scm:git:git@github.com:uw-loci/ome-versioning</developerConnection>
+		<tag>HEAD</tag>
+		<url>https://github.com/uw-loci/ome-versioning</url>
+	</scm>
+
 	<repositories>
 		<!-- NB: for project parent -->
 		<repository>
