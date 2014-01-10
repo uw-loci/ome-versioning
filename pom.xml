@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-    http://maven.apache.org/xsd/maven-v4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+		http://maven.apache.org/xsd/maven-v4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-  <parent>
-    <groupId>loci</groupId>
-    <artifactId>pom-scifio</artifactId>
-    <version>4.4-SNAPSHOT</version>
-  </parent>
+	<parent>
+		<groupId>loci</groupId>
+		<artifactId>pom-scifio</artifactId>
+		<version>4.4-SNAPSHOT</version>
+	</parent>
 
-  <artifactId>ome-versioning</artifactId>
+	<artifactId>ome-versioning</artifactId>
 
-  <name>OME-XML Versioning</name>
-  <description>OME-XML library extension for document versioning.</description>
-  <inceptionYear>2012</inceptionYear>
+	<name>OME-XML Versioning</name>
+	<description>OME-XML library extension for document versioning.</description>
+	<inceptionYear>2012</inceptionYear>
 
-  <licenses>
-    <license>
-      <name>Simplified BSD</name>
-      <distribution>repo</distribution>
-    </license>
-  </licenses>
+	<licenses>
+		<license>
+			<name>Simplified BSD</name>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
 
-  <dependencies>
+	<dependencies>
 		<dependency>
 			<groupId>loci</groupId>
 			<artifactId>ome-xml</artifactId>
@@ -43,73 +43,73 @@
 			<artifactId>diffutils</artifactId>
 			<version>1.2.1</version>
 		</dependency>
-  </dependencies>
+	</dependencies>
 
-  <build>
-    <plugins>
-      <plugin>
-        <artifactId>maven-jar-plugin</artifactId>
-        <configuration>
-          <archive>
-            <manifest>
-              <mainClass>ome.xml.version.About</mainClass>
-              <packageName>ome.xml.version</packageName>
-            </manifest>
-          </archive>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>license-maven-plugin</artifactId>
-        <configuration>
-          <licenseName>ome-versioning</licenseName>
-          <organizationName>Open Microscopy Environment:
-  - Board of Regents of the University of Wisconsin-Madison
-  - Glencoe Software, Inc.
-  - University of Dundee</organizationName>
-          <projectName>OME-XML library extension for document versioning.</projectName>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>ome.xml.version.About</mainClass>
+							<packageName>ome.xml.version</packageName>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>license-maven-plugin</artifactId>
+				<configuration>
+					<licenseName>ome-versioning</licenseName>
+					<organizationName>Open Microscopy Environment:
+	- Board of Regents of the University of Wisconsin-Madison
+	- Glencoe Software, Inc.
+	- University of Dundee</organizationName>
+					<projectName>OME-XML library extension for document versioning.</projectName>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
-  <developers>
-    <developer>
-      <id>briney</id>
-      <name>Kristin Briney</name>
-      <url>http://loci.wisc.edu/people/kristin-briney</url>
-      <organization>UW-Madison LOCI</organization>
-      <organizationUrl>http://loci.wisc.edu/</organizationUrl>
-      <roles>
-        <role>developer</role>
-      </roles>
-      <timezone>-6</timezone>
-    </developer>
-    <developer>
-      <id>curtis</id>
-      <name>Curtis Rueden</name>
-      <email>ctrueden@wisc.edu</email>
-      <url>http://loci.wisc.edu/people/curtis-rueden</url>
-      <organization>UW-Madison LOCI</organization>
-      <organizationUrl>http://loci.wisc.edu/</organizationUrl>
-      <roles>
-        <role>architect</role>
-        <role>developer</role>
-      </roles>
-      <timezone>-6</timezone>
-    </developer>
-  </developers>
+	<developers>
+		<developer>
+			<id>briney</id>
+			<name>Kristin Briney</name>
+			<url>http://loci.wisc.edu/people/kristin-briney</url>
+			<organization>UW-Madison LOCI</organization>
+			<organizationUrl>http://loci.wisc.edu/</organizationUrl>
+			<roles>
+				<role>developer</role>
+			</roles>
+			<timezone>-6</timezone>
+		</developer>
+		<developer>
+			<id>curtis</id>
+			<name>Curtis Rueden</name>
+			<email>ctrueden@wisc.edu</email>
+			<url>http://loci.wisc.edu/people/curtis-rueden</url>
+			<organization>UW-Madison LOCI</organization>
+			<organizationUrl>http://loci.wisc.edu/</organizationUrl>
+			<roles>
+				<role>architect</role>
+				<role>developer</role>
+			</roles>
+			<timezone>-6</timezone>
+		</developer>
+	</developers>
 
-  <!-- NB: for project parent, in case of partial checkout -->
-  <repositories>
-    <repository>
-      <id>loci.releases</id>
-      <url>http://dev.loci.wisc.edu/maven2/releases</url>
-    </repository>
-    <repository>
-      <id>loci.snapshots</id>
-      <url>http://dev.loci.wisc.edu/maven2/snapshots</url>
-    </repository>
-  </repositories>
+	<!-- NB: for project parent, in case of partial checkout -->
+	<repositories>
+		<repository>
+			<id>loci.releases</id>
+			<url>http://dev.loci.wisc.edu/maven2/releases</url>
+		</repository>
+		<repository>
+			<id>loci.snapshots</id>
+			<url>http://dev.loci.wisc.edu/maven2/snapshots</url>
+		</repository>
+	</repositories>
 
 </project>
