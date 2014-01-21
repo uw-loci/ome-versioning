@@ -13,6 +13,7 @@
 	</parent>
 
 	<artifactId>ome-versioning</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
 
 	<name>OME-XML Versioning</name>
 	<description>OME-XML library extension for document versioning.</description>
