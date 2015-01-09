@@ -39,31 +39,31 @@ package ome.xml.version;
  */
 public final class About {
 
-  // -- Constants --
+	// -- Constants --
 
-  /** URL for OME-XML versioning web page. */
-  public static final String URL_OME_VERSIONING =
-    "http://www.openmicroscopy.org/" +
-    "site/support/file-formats/ome-xml-versioning";
+	/** URL for OME-XML versioning web page. */
+	public static final String URL_OME_VERSIONING =
+		"http://www.openmicroscopy.org/"
+			+ "site/support/file-formats/ome-xml-versioning";
 
-  // -- Static utility methods --
+	// -- Static utility methods --
 
-  public static String about() {
-    StringBuilder sb = new StringBuilder();
-    String nl = System.getProperty("line.separator");
-    sb.append("OME-XML versioning extension" + nl);
-    sb.append(nl);
-    sb.append("Copyright (C) 2012 Open Microscopy Environment:" + nl);
-    sb.append("  - Board of Regents " +
-      "of the University of Wisconsin-Madison" + nl);
-    sb.append("  - Glencoe Software, Inc." + nl);
-    sb.append("  - University of Dundee" + nl);
-    sb.append(nl);
-    sb.append(URL_OME_VERSIONING + nl);
-    sb.append(nl);
-    sb.append("Authors: Kristin Briney, Curtis Rueden" + nl);
-    sb.append("Advisors: Roger Leigh, Josh Moore, Andrew Patterson" + nl);
-    return sb.toString();
-  }
+	public static String about() {
+		final StringBuilder sb = new StringBuilder();
+		final String nl = System.getProperty("line.separator");
+		sb.append("OME-XML versioning extension" + nl);
+		sb.append(nl);
+		sb.append("Copyright (C) 2012 Open Microscopy Environment:" + nl);
+		sb.append("  - Board of Regents " +
+			"of the University of Wisconsin-Madison" + nl);
+		sb.append("  - Glencoe Software, Inc." + nl);
+		sb.append("  - University of Dundee" + nl);
+		sb.append(nl);
+		sb.append(URL_OME_VERSIONING + nl);
+		sb.append(nl);
+		sb.append("Authors: Kristin Briney, Curtis Rueden" + nl);
+		sb.append("Advisors: Roger Leigh, Josh Moore, Andrew Patterson" + nl);
+		return sb.toString();
+	}
 
 }

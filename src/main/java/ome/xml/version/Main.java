@@ -51,40 +51,43 @@ import java.util.List;
  */
 public final class Main {
 
-  /** Helper method for get the file content. */
-  private static List<String> fileToLines(String filename) {
-          List<String> lines = new LinkedList<String>();
-          String line = "";
-          try {
-                  BufferedReader in = new BufferedReader(new FileReader(filename));
-                  while ((line = in.readLine()) != null) {
-                          lines.add(line);
-                  }
-          } catch (IOException e) {
-                  e.printStackTrace();
-          }
-          return lines;
-  }
-  
-  // -- Main method --
+	/** Helper method for get the file content. */
+	private static List<String> fileToLines(final String filename) {
+		final List<String> lines = new LinkedList<String>();
+		String line = "";
+		try {
+			final BufferedReader in = new BufferedReader(new FileReader(filename));
+			while ((line = in.readLine()) != null) {
+				lines.add(line);
+			}
+		}
+		catch (final IOException e) {
+			e.printStackTrace();
+		}
+		return lines;
+	}
 
-  public static void main(String[] args) {
-    List<String> original = fileToLines(args[0]);
-    List<String> revised  = fileToLines(args[2]);
-    
-    // Compute diff. Get the Patch object. Patch is the container for computed deltas.
-    Patch patch = DiffUtils.diff(original, revised);
+	// -- Main method --
 
-    try {
-      BufferedWriter out = new BufferedWriter(new FileWriter(args[4]));
-      for (Delta delta: patch.getDeltas()) {
-        out.write(delta.toString());
-        //out.write(args[0]);
-        }
-      out.close();
-      } catch (IOException e) {
-      e.printStackTrace();
-      }
-  }
+	public static void main(final String[] args) {
+		final List<String> original = fileToLines(args[0]);
+		final List<String> revised = fileToLines(args[2]);
+
+		// Compute diff. Get the Patch object.
+		// Patch is the container for computed deltas.
+		final Patch patch = DiffUtils.diff(original, revised);
+
+		try {
+			final BufferedWriter out = new BufferedWriter(new FileWriter(args[4]));
+			for (final Delta delta : patch.getDeltas()) {
+				out.write(delta.toString());
+				// out.write(args[0]);
+			}
+			out.close();
+		}
+		catch (final IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 }

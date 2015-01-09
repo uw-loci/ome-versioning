@@ -39,23 +39,23 @@ import org.junit.Test;
 
 /**
  * Tests {@link About}.
- * 
+ *
  * @author Curtis Rueden
  */
 public class AboutTest {
 
-  @Test
-  public void testHeader() {
-    String about = About.about();
-    assertNotNull(about);
-    assertTrue(about.indexOf("Authors: Kristin Briney") >= 0);
-  }
+	@Test
+	public void testHeader() {
+		final String about = About.about();
+		assertNotNull(about);
+		assertTrue(about.indexOf("Authors: Kristin Briney") >= 0);
+	}
 
-  @Test
-  public void testAuthors() {
-    String about = About.about();
-    assertNotNull(about);
-    assertTrue(about.indexOf("Authors: Kristin Briney") >= 0);
-  }
+	@Test
+	public void testAuthors() {
+		final String about = About.about();
+		assertNotNull(about);
+		assertTrue(about.indexOf("Authors: Kristin Briney") >= 0);
+	}
 
 }
