@@ -32,38 +32,59 @@
 
 package ome.xml.version;
 
+import difflib.Delta;
+import difflib.DiffUtils;
+import difflib.Patch;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.LinkedList;
+import java.util.List;
+
 /**
- * Displays a small information dialog about the project.
+ * Main entry point into the OME-XML injector.
  *
  * @author Curtis Rueden
  */
-public final class About {
+public final class Main {
 
-  // -- Constants --
+  /** Helper method for get the file content. */
+  private static List<String> fileToLines(String filename) {
+          List<String> lines = new LinkedList<String>();
+          String line = "";
+          try {
+                  BufferedReader in = new BufferedReader(new FileReader(filename));
+                  while ((line = in.readLine()) != null) {
+                          lines.add(line);
+                  }
+          } catch (IOException e) {
+                  e.printStackTrace();
+          }
+          return lines;
+  }
+  
+  // -- Main method --
 
-  /** URL for OME-XML versioning web page. */
-  public static final String URL_OME_VERSIONING =
-    "http://www.openmicroscopy.org/" +
-    "site/support/file-formats/ome-xml-versioning";
+  public static void main(String[] args) {
+    List<String> original = fileToLines(args[0]);
+    List<String> revised  = fileToLines(args[2]);
+    
+    // Compute diff. Get the Patch object. Patch is the container for computed deltas.
+    Patch patch = DiffUtils.diff(original, revised);
 
-  // -- Static utility methods --
-
-  public static String about() {
-    StringBuilder sb = new StringBuilder();
-    String nl = System.getProperty("line.separator");
-    sb.append("OME-XML versioning extension" + nl);
-    sb.append(nl);
-    sb.append("Copyright (C) 2012 Open Microscopy Environment:" + nl);
-    sb.append("  - Board of Regents " +
-      "of the University of Wisconsin-Madison" + nl);
-    sb.append("  - Glencoe Software, Inc." + nl);
-    sb.append("  - University of Dundee" + nl);
-    sb.append(nl);
-    sb.append(URL_OME_VERSIONING + nl);
-    sb.append(nl);
-    sb.append("Authors: Kristin Briney, Curtis Rueden" + nl);
-    sb.append("Advisors: Roger Leigh, Josh Moore, Andrew Patterson" + nl);
-    return sb.toString();
+    try {
+      BufferedWriter out = new BufferedWriter(new FileWriter(args[4]));
+      for (Delta delta: patch.getDeltas()) {
+        out.write(delta.toString());
+        //out.write(args[0]);
+        }
+      out.close();
+      } catch (IOException e) {
+      e.printStackTrace();
+      }
   }
 
 }

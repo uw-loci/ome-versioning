@@ -45,6 +45,10 @@
 		</dependency>
 	</dependencies>
 
+	<properties>
+		<main-class>ome.xml.version.Main</main-class>
+	</properties>
+
 	<build>
 		<plugins>
 			<plugin>
@@ -52,7 +56,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>ome.xml.version.About</mainClass>
+							<mainClass>${main-class}</mainClass>
 							<packageName>ome.xml.version</packageName>
 						</manifest>
 					</archive>
