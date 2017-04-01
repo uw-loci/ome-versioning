@@ -6,18 +6,24 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>loci</groupId>
-		<artifactId>pom-loci</artifactId>
-		<version>2.0.0</version>
+		<groupId>org.scijava</groupId>
+		<artifactId>pom-scijava</artifactId>
+		<version>14.0.0</version>
 		<relativePath />
 	</parent>
 
+	<groupId>loci</groupId>
 	<artifactId>ome-versioning</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 
 	<name>OME-XML Versioning</name>
 	<description>OME-XML library extension for document versioning.</description>
+	<url>https://github.com/uw-loci/ome-versioning</url>
 	<inceptionYear>2012</inceptionYear>
+	<organization>
+		<name>LOCI</name>
+		<url>https://loci.wisc.edu/</url>
+	</organization>
 	<licenses>
 		<license>
 			<name>Simplified BSD License</name>
@@ -45,15 +51,39 @@
 		</contributor>
 	</contributors>
 
+	<mailingLists>
+		<mailingList>
+			<name>LOCI Software</name>
+			<subscribe>https://loci.wisc.edu/mailman/listinfo/loci-software</subscribe>
+			<unsubscribe>https://loci.wisc.edu/mailman/listinfo/loci-software</unsubscribe>
+			<post>loci-software@loci.wisc.edu</post>
+			<archive>https://loci.wisc.edu/pipermail/loci-software/</archive>
+		</mailingList>
+	</mailingLists>
+
 	<scm>
 		<connection>scm:git:git://github.com/uw-loci/ome-versioning</connection>
 		<developerConnection>scm:git:git@github.com:uw-loci/ome-versioning</developerConnection>
 		<tag>HEAD</tag>
 		<url>https://github.com/uw-loci/ome-versioning</url>
 	</scm>
+	<issueManagement>
+		<system>GitHub Issues</system>
+		<url>https://github.com/uw-loci/ome-versioning/issues</url>
+	</issueManagement>
+	<ciManagement>
+		<system>Travis CI</system>
+		<url>https://travis-ci.org/uw-loci/ome-versioning</url>
+	</ciManagement>
 
 	<properties>
 		<main-class>ome.xml.version.Main</main-class>
+		<package-name>ome.xml.version</package-name>
+		<license.licenseName>bsd_2</license.licenseName>
+		<license.copyrightOwners>Open Microscopy Environment:
+	- Board of Regents of the University of Wisconsin-Madison
+	- Glencoe Software, Inc.
+	- University of Dundee</license.copyrightOwners>
 	</properties>
 
 	<repositories>
@@ -65,7 +95,7 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>ome</groupId>
+			<groupId>org.openmicroscopy</groupId>
 			<artifactId>ome-xml</artifactId>
 		</dependency>
 
@@ -81,32 +111,4 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<artifactId>maven-jar-plugin</artifactId>
-				<configuration>
-					<archive>
-						<manifest>
-							<mainClass>${main-class}</mainClass>
-							<packageName>ome.xml.version</packageName>
-						</manifest>
-					</archive>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>license-maven-plugin</artifactId>
-				<configuration>
-					<licenseName>bsd_2</licenseName>
-					<organizationName>Open Microscopy Environment:
-	- Board of Regents of the University of Wisconsin-Madison
-	- Glencoe Software, Inc.
-	- University of Dundee</organizationName>
-					<projectName>OME-XML library extension for document versioning.</projectName>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
 </project>
